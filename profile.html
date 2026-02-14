@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - AgroBit Forum</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🌾</span>
+                <span class="logo-text">AgroBit Forum</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <!-- Dynamic content based on auth state -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Loading State -->
+        <div class="loading" id="profileLoading">Loading profile...</div>
+
+        <!-- Profile Container -->
+        <div class="profile-container" id="profileContainer" style="display: none;">
+            <!-- Profile Header -->
+            <div class="profile-header-card">
+                <div class="profile-avatar" id="profileAvatar">👤</div>
+                <div class="profile-header-info">
+                    <h1 class="profile-name" id="profileName">Loading...</h1>
+                    <p class="profile-email" id="profileEmail"></p>
+                    <p class="profile-joined" id="profileJoined"></p>
+                </div>
+            </div>
+
+            <!-- Profile Details Card -->
+            <div class="profile-card">
+                <div class="profile-card-header">
+                    <h2>Profile Information</h2>
+                    <button class="btn btn-secondary" id="editProfileBtn" onclick="toggleEditMode()">Edit Profile</button>
+                </div>
+
+                <!-- View Mode -->
+                <div class="profile-details" id="profileViewMode">
+                    <div class="profile-field">
+                        <span class="field-label">Full Name</span>
+                        <span class="field-value" id="viewName">-</span>
+                    </div>
+                    <div class="profile-field">
+                        <span class="field-label">District</span>
+                        <span class="field-value" id="viewDistrict">-</span>
+                    </div>
+                    <div class="profile-field">
+                        <span class="field-label">State</span>
+                        <span class="field-value" id="viewState">-</span>
+                    </div>
+                    <div class="profile-field">
+                        <span class="field-label">Crops</span>
+                        <span class="field-value" id="viewCrops">-</span>
+                    </div>
+                </div>
+
+                <!-- Edit Mode -->
+                <form class="profile-edit-form" id="profileEditMode" style="display: none;">
+                    <div class="form-group">
+                        <label for="editName">Full Name</label>
+                        <input type="text" id="editName" required placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="editDistrict">District</label>
+                        <input type="text" id="editDistrict" placeholder="Your district">
+                    </div>
+                    <div class="form-group">
+                        <label for="editState">State</label>
+                        <input type="text" id="editState" placeholder="Your state">
+                    </div>
+                    <div class="form-group">
+                        <label for="editCrops">Crops (comma separated)</label>
+                        <input type="text" id="editCrops" placeholder="Rice, Wheat, Cotton">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="cancelEdit()">Cancel</button>
+                        <button type="submit" class="btn btn-primary" id="saveProfileBtn">
+                            <span class="btn-text">Save Changes</span>
+                            <span class="btn-loading" style="display: none;">Saving...</span>
+                        </button>
+                    </div>
+                </form>
+
+                <div id="profileMessage" class="form-message"></div>
+            </div>
+
+            <!-- User Statistics -->
+            <div class="profile-card">
+                <h2>Your Activity</h2>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <span class="stat-value" id="statPosts">0</span>
+                        <span class="stat-label">Posts</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="statReplies">0</span>
+                        <span class="stat-label">Replies</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="statBestAnswers">0</span>
+                        <span class="stat-label">Best Answers</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Posts -->
+            <div class="profile-card">
+                <h2>Your Recent Posts</h2>
+                <div class="user-posts-list" id="userPostsList">
+                    <p class="no-posts-message">Loading...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 AgroBit Forum. Empowering Farmers Together.</p>
+    </footer>
+
+    <script src="js/supabase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

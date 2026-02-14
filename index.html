@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriSentinel Farmers Hub - Farmers Discussion Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🌾</span>
+                <span class="logo-text">AgroSentinel Farmers Hub</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <!-- Dynamic content based on auth state -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <div class="page-header">
+            <h1>Farmers Discussion Forum</h1>
+            <p>Share your farming experiences, ask questions, and connect with fellow farmers</p>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="filter-section">
+            <select id="categoryFilter" class="filter-select">
+                <option value="">All Categories</option>
+            </select>
+        </div>
+
+        <!-- Posts Container -->
+        <div class="posts-container" id="postsContainer">
+            <div class="loading">Loading posts...</div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 AgroBit Forum. Empowering Farmers Together.</p>
+    </footer>
+
+    <script src="js/supabase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

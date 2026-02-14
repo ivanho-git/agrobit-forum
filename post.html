@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post - AgroSentinel Farmers Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🌾</span>
+                <span class="logo-text">AgroSentinel Farmers Hub</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <!-- Dynamic content based on auth state -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Loading State -->
+        <div class="loading" id="postLoading">Loading post...</div>
+
+        <!-- Post Container -->
+        <div class="post-detail-container" id="postDetail" style="display: none;">
+            <!-- Post Content -->
+            <article class="post-detail-card">
+                <!-- Vote Section -->
+                <div class="post-vote-section-detail" id="postVoteSection">
+                    <!-- Vote button will be injected by JS -->
+                </div>
+
+                <div class="post-header">
+                    <span class="post-category-badge" id="postCategory"></span>
+                    <span class="post-issue-type" id="postIssueType"></span>
+                </div>
+
+                <h1 class="post-detail-title" id="postTitle"></h1>
+
+                <div class="post-meta">
+                    <span class="post-author">
+                        <span class="author-icon">👤</span>
+                        <span id="postAuthor"></span>
+                    </span>
+                    <span class="post-date" id="postDate"></span>
+                </div>
+
+                <div class="post-image-container" id="postImageContainer" style="display: none;">
+                    <img id="postImage" src="" alt="Post image" class="post-detail-image">
+                </div>
+
+                <div class="post-description" id="postDescription"></div>
+
+                <!-- AI Suggestion if exists -->
+                <div class="ai-suggestion" id="aiSuggestion" style="display: none;">
+                    <div class="ai-suggestion-header">
+                        <span class="ai-icon">🤖</span>
+                        <span>AI Suggestion</span>
+                    </div>
+                    <p id="aiSuggestionText"></p>
+                </div>
+            </article>
+
+            <!-- Replies Section -->
+            <section class="replies-section">
+                <h2 class="replies-title">
+                    Replies <span class="replies-count" id="repliesCount">(0)</span>
+                </h2>
+
+                <!-- Reply Form (shown only if logged in) -->
+                <div class="reply-form-container" id="replyFormContainer" style="display: none;">
+                    <form id="replyForm" class="reply-form">
+                        <div class="form-group">
+                            <textarea id="replyMessage" rows="3" required placeholder="Share your thoughts or advice..."></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" id="replySubmitBtn">
+                                <span class="btn-text">Post Reply</span>
+                                <span class="btn-loading" style="display: none;">Posting...</span>
+                            </button>
+                        </div>
+                    </form>
+                    <div id="replyFormMessage" class="form-message"></div>
+                </div>
+
+                <!-- Login Prompt (shown if not logged in) -->
+                <div class="login-prompt" id="loginPrompt" style="display: none;">
+                    <p>Please <a href="login.html">login</a> to post a reply.</p>
+                </div>
+
+                <!-- Replies List -->
+                <div class="replies-list" id="repliesList">
+                    <div class="no-replies" id="noReplies">No replies yet. Be the first to respond!</div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Not Found State -->
+        <div class="not-found" id="notFound" style="display: none;">
+            <h2>Post Not Found</h2>
+            <p>The post you're looking for doesn't exist or has been removed.</p>
+            <a href="index.html" class="btn btn-primary">Back to Home</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 AgroBit Forum. Empowering Farmers Together.</p>
+    </footer>
+
+    <script src="js/supabase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/post.js"></script>
+</body>
+</html>
