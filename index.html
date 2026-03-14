@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgriSentinel Farmers Hub - Farmers Discussion Platform</title>
+    <title>AgroSentinel Farmers Hub - Agricultural Community Platform</title>
+    <meta name="description" content="Connect with fellow farmers, share experiences, and get expert advice on agricultural practices.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
@@ -12,8 +16,8 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <span class="logo-icon">🌾</span>
-                <span class="logo-text">AgroSentinel Farmers Hub</span>
+                <span class="logo-icon">🌱</span>
+                <span class="logo-text">AgroSentinel</span>
             </a>
             <div class="nav-links" id="navLinks">
                 <!-- Dynamic content based on auth state -->
@@ -25,25 +29,25 @@
     <main class="main-container">
         <div class="page-header">
             <h1>Farmers Discussion Forum</h1>
-            <p>Share your farming experiences, ask questions, and connect with fellow farmers</p>
+            <p>Connect with fellow farmers, share your experiences, and discover solutions together</p>
         </div>
 
         <!-- Category Filter -->
         <div class="filter-section">
-            <select id="categoryFilter" class="filter-select">
+            <select id="categoryFilter" class="filter-select" aria-label="Filter by category">
                 <option value="">All Categories</option>
             </select>
         </div>
 
         <!-- Posts Container -->
         <div class="posts-container" id="postsContainer">
-            <div class="loading">Loading posts...</div>
+            <div class="loading">Loading discussions...</div>
         </div>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2026 AgroBit Forum. Empowering Farmers Together.</p>
+        <p>&copy; 2026 AgroSentinel Farmers Hub. Empowering farmers through community.</p>
     </footer>
 
     <script src="js/supabase-config.js"></script>
